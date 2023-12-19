@@ -1,4 +1,4 @@
-# mediumclone_vue
+# Portfolio Project
 
 ## Project setup
 ```
