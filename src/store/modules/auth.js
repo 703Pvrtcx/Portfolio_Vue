@@ -6,9 +6,14 @@ const mutations = {
         state.isSubmitting = true;
     }
 }
+const actions ={
+    register(context){
+        context.commit('registerStart')
+    }
+}
 export default {
     state,
-    // actions,
+    actions,
     mutations,
     // getters
 }
