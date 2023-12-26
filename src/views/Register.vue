@@ -56,7 +56,16 @@ export default {
     onSubmit(){
       // console.log('OnSubmit');
       // this.$store.commit('registerStart')
-      this.$store.dispatch('register')
+      this.$store.dispatch('register',{
+        email: "register703Partco@gmail.com",
+        username: "theesevenowethree",
+        password: "10111seven"
+      })
+        .then(result=>{
+          console.log('Result from register action', result );
+        }).catch(error=>{
+          console.log('Error results: ', error);
+        })
     }
   }
 }
