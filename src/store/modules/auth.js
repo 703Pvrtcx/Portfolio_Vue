@@ -1,4 +1,5 @@
 import authApi from '@/api/auth';
+import { setItem } from '@/helpers/persistanceStorage'
 
 const state = {
     isSubmitting: false,
@@ -23,12 +24,12 @@ const mutations = {
 }
 const actions ={
     register(context,credentials){
-       
        return new Promise(resolve=>{
             context.commit('registerStart')
             authApi.register(credentials)
             .then(response=>{
                 context.commit('registerSuccess', response.data.user);
+                setItem('accessToken', response.data.user.token)
                 resolve(response.data.user)
             }).catch(error=>{
                 console.log('Error message: ',error);
@@ -36,11 +37,6 @@ const actions ={
                 context.commit('registerFailure', error.response.data.errors);
             })
        })
-        // context.commit('registerStart')
-        // setTimeout(()=>{
-
-           
-        // },1000)
     }
 }
 export default {
