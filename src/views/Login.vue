@@ -45,7 +45,6 @@ import { mapState } from 'vuex'
  import McvValidationErrors from '@/components/ValidationErrors.vue'
 import { actionTypes } from '@/store/modules/auth'
 
-
 export default {
   name: 'McvLogin',
   components:{
