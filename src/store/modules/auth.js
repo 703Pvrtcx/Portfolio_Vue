@@ -33,6 +33,20 @@ const mutations = {
     [mutationTypes.registerFailure](state, payload){
         state.isSubmitting = false;
         state.validationErrors = payload
+    },
+
+    [mutationTypes.loginStart](state){
+        state.isSubmitting = true;
+        state.validationErrors = null
+    },
+    [mutationTypes.loginSuccess](state, payload){
+        state.isSubmitting = false;
+        state.isLoggedIn = true;
+        state.currentUser = payload;
+    },
+    [mutationTypes.loginFailure](state, payload){
+        state.isSubmitting = false;
+        state.validationErrors = payload
     }
 }
 const actions ={
