@@ -50,7 +50,7 @@ const mutations = {
     }
 }
 const actions ={
-    register(context,credentials){
+    [actionTypes.register](context,credentials){
        return new Promise(resolve=>{
             context.commit(mutationTypes.registerStart)
             authApi.register(credentials)
@@ -62,7 +62,20 @@ const actions ={
                 context.commit(mutationTypes.registerFailure, error.response.data.errors);
             })
        })
-    }
+    },
+    [actionTypes.login](context,credentials){
+        return new Promise(resolve=>{
+             context.commit(mutationTypes.loginStart)
+             authApi.login(credentials)
+             .then(response=>{
+                 context.commit(mutationTypes.loginSuccess, response.data.user);
+                 setItem('accessToken', response.data.user.token)
+                 resolve(response.data.user)
+             }).catch(error=>{
+                 context.commit(mutationTypes.loginFailure, error.response.data.errors);
+             })
+        })
+     }
 }
 export default {
     state,

@@ -17,14 +17,6 @@
               <input
                 class="form-control form-control-lg"
                 type="text"
-                placeholder="Username"
-                v-model="username"
-              />
-            </fieldset>
-            <fieldset class="form-group">
-              <input
-                class="form-control form-control-lg"
-                type="text"
                 placeholder="Email"
                 v-model="email"
               />
@@ -49,7 +41,10 @@
 </template>
 
 <script>
-import McvValidationErrors from '@/components/ValidationErrors.vue'
+import { mapState } from 'vuex'
+ import McvValidationErrors from '@/components/ValidationErrors.vue'
+import { actionTypes } from '@/store/modules/auth'
+
 
 export default {
   name: 'McvLogin',
@@ -59,23 +54,25 @@ export default {
   data(){
     return {
       email: '',
-      username: '',
       password: ''
     }
   },
   computed:{
-    isSubmitting(){
-      return this.$store.state.auth.isSubmitting
-    },
-    validationErrors(){
-      return this.$store.state.auth.validationErrors
-    }
+    ...mapState({
+      isSubmitting: state => state.auth.isSubmitting,
+      validationErrors: state => state.auth.validationErrors
+    })
+    // isSubmitting(){
+    //   return this.$store.state.auth.isSubmitting
+    // },
+    // validationErrors(){
+    //   return this.$store.state.auth.validationErrors
+    // }
   },
   methods:{
     onSubmit(){
-      this.$store.dispatch('register',{
+      this.$store.dispatch(actionTypes.login,{
         email: this.email,
-        username: this.username,
         password: this.password
       })
         .then(()=>{
