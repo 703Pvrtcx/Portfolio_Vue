@@ -3,10 +3,10 @@
     <div class="container page">
       <div class="row">
         <div class="col-md-6 offset-md-3 col-xs-12">
-          <h1 class="text-xs-center">Sign up</h1>
+          <h1 class="text-xs-center">Sign In</h1>
           <p class="text-xs-center">
-            <router-link :to="{name: 'login'}">
-              Have an account?
+            <router-link :to="{name: 'register'}">
+              Need an account?
             </router-link>
           </p>
           <mcv-validation-errors v-if="validationErrors"
@@ -39,7 +39,7 @@
             </fieldset>
             <button class="btn btn-lg btn-primary pull-xs-right" 
               :disabled="isSubmitting">
-              Sign Up
+              Sign In
             </button>
           </form>
         </div>
@@ -50,9 +50,9 @@
 
 <script>
 import McvValidationErrors from '@/components/ValidationErrors.vue'
-import { actionTypes } from '@/store/modules/auth'
+
 export default {
-  name: 'McvRegister',
+  name: 'McvLogin',
   components:{
     McvValidationErrors
   },
@@ -73,7 +73,7 @@ export default {
   },
   methods:{
     onSubmit(){
-      this.$store.dispatch(actionTypes.register,{
+      this.$store.dispatch('register',{
         email: this.email,
         username: this.username,
         password: this.password

@@ -10,9 +10,16 @@ const state = {
 export const mutationTypes = {
     registerStart: '[auth] Register start',
     registerSuccess: '[auth] Register success',
-    registerFailure: '[auth] Register failure'
-}
+    registerFailure: '[auth] Register failure',
 
+    loginStart: '[auth] Login start',
+    loginSuccess: '[auth] Login success',
+    loginFailure: '[auth] Login failure'
+}
+export const actionTypes = {
+    register: '[auth] Register',
+    login: '[auth] Login'
+}
 const mutations = {
     [mutationTypes.registerStart](state){
         state.isSubmitting = true;
