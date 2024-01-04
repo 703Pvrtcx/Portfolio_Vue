@@ -1,21 +1,20 @@
 <template>
 <div id="app">
-  <!-- <nav>
-    <router-link to="/">Home</router-link>  |
-    <router-link to="/about">About</router-link>  |
-    <router-link to="/register">Sign Up </router-link>|
-    <router-link to="/login">Sign In </router-link>
-  </nav> -->
   <mvc-topbar></mvc-topbar>
   <router-view></router-view>
 </div>
 </template>
 <script>
 import MvcTopbar from '@/components/Topbar.vue'
+import { actionTypes } from './store/modules/auth';
   export default {
     name: 'App',
     components: {
       MvcTopbar
+    },
+    mounted(){
+      console.log('App');
+      this.$store.dispatch(actionTypes.getCurrentUser);
     }
   }
 </script>
