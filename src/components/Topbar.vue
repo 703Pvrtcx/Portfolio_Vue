@@ -11,15 +11,14 @@
                 </li>
                 <template v-if="isLoggedIn">
                     <li class="nav-item">
-                        <router-link class="nav-link" :to=" {name:'globalFeed'}">
-                            <!-- name: 'createArticle' -->
+                        <router-link class="nav-link" :to=" {name:'createArticle'}">
                             <i class="ion-compose"></i>
                             &nbsp;
                             New Article
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to=" {name:'globalFeed'}">
+                        <router-link class="nav-link" :to=" {name:'settings'}">
                             <!-- name: 'settings' -->
                             <i class="ion-gear-a"></i>
                             &nbsp;
@@ -27,8 +26,7 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'globalFeed', params: { slug: currentUser.username } }">
-                            <!-- name: 'userProfile' -->
+                        <router-link class="nav-link" :to="{name:'userProfile', params: { slug: currentUser.username } }">
                         <img class="user-pic" :src="currentUser.image" alt="">
                         &nbsp;
                         {{ currentUser.username }}
@@ -55,7 +53,9 @@
 </template>
 <script>
 import { mapGetters } from 'vuex';
+
 import { getterTypes } from '@/store/modules/auth';
+
 export default {
     name: 'McvTopbar',
     computed: {

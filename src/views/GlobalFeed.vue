@@ -4,7 +4,7 @@
     <mcv-feed/>
  </div> -->
 
- <div class="home-page container1" id="globalFeed">
+ <div class="home-page container" id="globalFeed">
     BANNER
     <div class="container page">
         <div class="row">
@@ -21,7 +21,8 @@
 </template>
 
 <script>
- import McvFeed from '@/views/Feed.vue'
+import McvFeed from '@/views/Feed.vue';
+
 export default {
     name: 'McvGlobalFeed',
     components:{
