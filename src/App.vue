@@ -5,22 +5,23 @@
 </div>
 </template>
 <script>
-import MvcTopbar from '@/components/Topbar.vue'
+import MvcTopbar from '@/components/Topbar.vue';
+
 import { actionTypes } from './store/modules/auth';
-  export default {
+
+export default {
     name: 'App',
     components: {
       MvcTopbar
     },
     mounted(){
-      console.log('App');
       this.$store.dispatch(actionTypes.getCurrentUser);
     }
   }
 </script>
 
 
-<style >
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

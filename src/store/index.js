@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import auth from '@/store/modules/auth'
-
+import feed from '@/store/modules/feed'
  const store = new Vuex.Store({
   state: {
   },
@@ -9,7 +9,8 @@ import auth from '@/store/modules/auth'
   actions: {
   },
   modules: {
-    auth
+    auth,
+    feed
   }
 })
 export default store;

@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+// import HomeView from '../views/HomeView.vue'
 import Register from '@/views/Register.vue'
 import Login from '@/views/Login.vue'
+import GlobalFeed from '@/views/GlobalFeed.vue'
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'globalFeed',
+    component: GlobalFeed 
   },
   {
     path: '/about',
@@ -25,7 +26,8 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
-  }
+  },
+
 ]
 
 const router = createRouter({
