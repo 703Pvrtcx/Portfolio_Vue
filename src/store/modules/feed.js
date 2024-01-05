@@ -14,7 +14,6 @@ export const mutationTypes = {
 export const actionTypes  = {
     getFeed: '[feed] Get feed',
 }
-
 const mutations = {
     [mutationTypes.getFeedStart](state) {
         state.isLoading = true;
